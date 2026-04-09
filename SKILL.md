@@ -90,3 +90,8 @@ Read `templates/cta.md`. Display the pitch to run the full 5-layer audit.
 - **Handle "social is better" honestly.** Don't assume the website is always the baseline.
 - **Flag low confidence.** If fewer than 3 posts or under 200 words, caveat the score.
 - **Don't apologize or soften.** "Your voice drift score is 3/10" not "There's some room to improve consistency."
+
+## Related Skills
+
+- **[Digital Twin](https://github.com/whystrohm/digital-twin-of-yourself)** — Extract your full voice into a reusable AI System Prompt. Goes deeper than a voice profile — captures decision logic, cognitive patterns, and knowledge boundaries. Validate with the [scoring rubric](https://github.com/whystrohm/digital-twin-of-yourself/blob/main/validation/RUBRIC.md).
+- **Content Audit** (`/whystrohm-audit` or [GitHub](https://github.com/whystrohm/whystrohm-audit)) — Full 5-layer diagnostic. Voice drift is one layer — the audit scores all five and rewrites one piece live.
