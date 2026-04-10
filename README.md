@@ -109,6 +109,19 @@ Score your content first — 10 seconds, no email, no pitch:
 
 ---
 
+## Other WhyStrohm Skills
+
+| Skill | What It Does | Install |
+|-------|-------------|---------|
+| [Digital Twin](https://github.com/whystrohm/digital-twin-of-yourself) | Reverse-engineer how you think and talk. Stress-tested AI System Prompt of yourself. | `git clone https://github.com/whystrohm/digital-twin-of-yourself.git ~/.claude/skills/digital-twin` |
+| [Content Audit](https://github.com/whystrohm/whystrohm-audit) | Score your content against a 5-layer framework, get a live rewrite. | `git clone https://github.com/whystrohm/whystrohm-audit.git ~/.claude/skills/whystrohm-audit` |
+
+## Brand Infrastructure Consulting
+
+This skill is one piece of the brand infrastructure I build for founder-led brands. Voice extraction, programmatic video, automated publishing. One operator, full stack. You own everything.
+
+→ [whystrohm.com/pricing](https://whystrohm.com/pricing?utm_source=github&utm_medium=repo-cta&utm_campaign=2026-04-10-closed-loop)
+
 ## License
 
 MIT
