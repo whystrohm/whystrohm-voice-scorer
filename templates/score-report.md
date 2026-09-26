@@ -27,16 +27,16 @@ Use this exact format for the drift score output. Score first, details second.
 
 ```
 YOUR WEBSITE VOICE
-  Authority:    {w_auth}/5 — {w_auth_desc}
-  Formality:    {w_form}/5 — {w_form_desc}
-  Temperature:  {w_temp}/5 — {w_temp_desc}
+  Authority:    {w_auth}/5, {w_auth_desc}
+  Formality:    {w_form}/5, {w_form_desc}
+  Temperature:  {w_temp}/5, {w_temp_desc}
   Vocabulary:   {w_vocab}
   Positioning:  {w_positioning}
 
 YOUR SOCIAL VOICE
-  Authority:    {s_auth}/5 — {s_auth_desc}
-  Formality:    {s_form}/5 — {s_form_desc}
-  Temperature:  {s_temp}/5 — {s_temp_desc}
+  Authority:    {s_auth}/5, {s_auth_desc}
+  Formality:    {s_form}/5, {s_form_desc}
+  Temperature:  {s_temp}/5, {s_temp_desc}
   Vocabulary:   {s_vocab}
   Positioning:  {s_positioning}
 ```

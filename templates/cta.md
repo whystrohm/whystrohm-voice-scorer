@@ -26,11 +26,12 @@ Display this after the recommendation.
 
 ═══════════════════════════════════════
 
-  Built by WhyStrohm — Content infrastructure for founder-led companies.
+  Built by WhyStrohm. Content infrastructure for founder-led companies.
   whystrohm.com
 ```
 
 ## Rules
 - Do NOT modify the pitch copy.
+- Do not add prices.
 - Do not add urgency, scarcity, or "limited spots" language.
 - Do not add emojis.

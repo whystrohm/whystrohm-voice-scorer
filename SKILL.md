@@ -1,6 +1,6 @@
 ---
 name: whystrohm-voice-scorer
-description: Use when a user wants to check if their social content matches their website voice. Scores voice drift between website and social posts — authority, formality, temperature, vocabulary, positioning.
+description: Use when a user wants to check if their social content matches their website voice. Scores voice drift between the website and recent social or published content (pasted, or pulled from one public link) on authority, formality, temperature, vocabulary, and positioning.
 allowed-tools: Read WebFetch WebSearch
 ---
 
@@ -47,13 +47,13 @@ Use WebFetch to pull:
 1. Homepage
 2. About or Services page (look for /about, /services, /what-we-do, or similar)
 
-While scraping, tell the user: "Pulling your site now — analyzing your voice patterns..."
+While scraping, tell the user: "Pulling your site now. Analyzing your voice patterns..."
 
 ## Step 3: Build Voice Profile
 
 Read `rules/voice-analysis.md`. Build the internal voice profile from the scraped pages.
 
-Tell the user: **"Got your website voice. Now I need your social content."**
+Tell the user: **"Got your website voice. Now I need your recent content."**
 
 ## Step 4: Collect Recent Content (auto-pull or paste)
 
@@ -103,5 +103,5 @@ Read `templates/cta.md`. Display the pitch to run the full 5-layer audit.
 
 ## Related Skills
 
-- **[Digital Twin](https://github.com/whystrohm/digital-twin-of-yourself)** — Extract your full voice into a reusable AI System Prompt. Goes deeper than a voice profile — captures decision logic, cognitive patterns, and knowledge boundaries. Validate with the [scoring rubric](https://github.com/whystrohm/digital-twin-of-yourself/blob/main/validation/RUBRIC.md).
-- **Content Audit** (`/whystrohm-audit` or [GitHub](https://github.com/whystrohm/whystrohm-audit)) — Full 5-layer diagnostic. Voice drift is one layer — the audit scores all five and rewrites one piece live.
+- **[Digital Twin](https://github.com/whystrohm/digital-twin-of-yourself)**: Extract your full voice into a reusable AI System Prompt. Goes deeper than a voice profile. Captures decision logic, cognitive patterns, and knowledge boundaries. Validate with the [scoring rubric](https://github.com/whystrohm/digital-twin-of-yourself/blob/main/validation/RUBRIC.md).
+- **Content Audit** (`/whystrohm-audit` or [GitHub](https://github.com/whystrohm/whystrohm-audit)): Full 5-layer diagnostic. Voice drift is one layer. The audit scores all five and rewrites one piece live.

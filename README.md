@@ -6,7 +6,7 @@
 
 **A free Claude Code skill that scores how well your social content matches your website voice.**
 
-Does your LinkedIn sound like your website? Your X posts match your brand? Paste your social content, get a drift score out of 10, and see exactly where your voice breaks down across platforms.
+Does your LinkedIn sound like your website? Do your X posts match your brand? Paste your recent posts, or point the skill at one public link (blog, newsletter archive, or YouTube channel). You get a drift score out of 10 and see exactly where your voice breaks down across platforms.
 
 <p align="center">
   <img src="demo.gif" alt="WhyStrohm Voice Scorer Demo" width="720">
@@ -19,7 +19,7 @@ Does your LinkedIn sound like your website? Your X posts match your brand? Paste
 | Step | What Happens |
 |------|-------------|
 | **1. Scrape** | Pulls your website to build a voice profile |
-| **2. Paste** | You paste 3-5 recent social posts (LinkedIn, X, any platform) |
+| **2. Collect** | Pulls recent content from one public link you give it, or you paste 3-5 recent social posts (LinkedIn, X, any platform) |
 | **3. Compare** | Scores your social voice against your website voice |
 | **4. Report** | Shows drift score, per-dimension breakdown, and exact drift examples |
 | **5. Recommend** | Tells you which voice is stronger and what to fix |
@@ -61,22 +61,22 @@ git clone https://github.com/whystrohm/whystrohm-voice-scorer.git ~/.claude/skil
 > /whystrohm-voice-scorer
 ```
 
-You'll be asked for your website URL, then asked to paste 3-5 social posts. Takes about 60 seconds.
+You'll be asked for your website URL. Then you choose: give one public link to your recent content, or paste 3-5 social posts. The skill reads public pages and feeds only, never logged-in platforms. See [SECURITY.md](SECURITY.md).
 
 ---
 
 ## What You Get
 
-1. **A drift score out of 10** — how well your social matches your website voice
-2. **Two voice profiles** — your website voice vs your social voice, scored per dimension
-3. **Exact drift examples** — specific quotes from both sources showing where they diverge
-4. **A clear recommendation** — which voice is stronger and what needs to change
+1. **A drift score out of 10**: how well your social matches your website voice
+2. **Two voice profiles**: your website voice vs your social voice, scored per dimension
+3. **Exact drift examples**: specific quotes from both sources showing where they diverge
+4. **A clear recommendation**: which voice is stronger and what needs to change
 
 ---
 
 ## Want the Full Picture?
 
-This scores **1 of 5 layers** — voice consistency.
+This scores **1 of 5 layers**: voice consistency.
 
 The full [WhyStrohm Content Infrastructure Audit](https://github.com/whystrohm/whystrohm-audit) scores all 5 layers: vocabulary, structure, proof density, voice consistency, and buyer alignment. Total score out of 50. Plus a live rewrite of your lowest-scoring content.
 
@@ -92,18 +92,18 @@ git clone https://github.com/whystrohm/whystrohm-audit.git ~/.claude/skills/whys
 
 ## The System Behind This
 
-This tool uses the same voice analysis framework from WhyStrohm's content infrastructure system — the methodology behind building content engines for founder-led companies.
+This tool uses the same voice analysis framework WhyStrohm uses to build content infrastructure for founder-led companies.
 
 **What the full system includes:**
-- Brand voice encoded as 40-60 enforceable rules (not a PDF)
+- Brand voice written as enforceable rules (not a PDF)
 - Content guardrails that reject hype and require proof before publish
 - Video production pipeline that renders branded content from code
-- Multi-platform posting automation
-- Templates, calendars, and a content engine your team owns completely
+- Scheduled publishing across platforms
+- Templates, calendars, and a content system your team owns
 
-**Starting at $3,000/month. One operator. Full stack. 30 minutes of your time per week. You own everything I build.**
+See how it is built: [whystrohm.com/system](https://whystrohm.com/system?utm_source=github&utm_medium=repo-cta&utm_campaign=2026-04-10-closed-loop)
 
-Score your content first — 10 seconds, no email, no pitch:
+Score your site first. No email needed to see the result:
 
 [whystrohm.com/scan](https://whystrohm.com/scan?utm_source=github&utm_medium=repo-cta&utm_campaign=2026-04-10-closed-loop)
 
@@ -113,15 +113,15 @@ Score your content first — 10 seconds, no email, no pitch:
 
 | Skill | What It Does | Install |
 |-------|-------------|---------|
-| [**Ritual**](https://github.com/whystrohm/ritual) **· NEW** | Scans your machine, ranks your top 5 automation candidates, drafts a Claude Code scheduled trigger that runs Voice Scorer across every brand on a cadence. | [Download `.skill` ↗](https://github.com/whystrohm/ritual/releases/latest) |
+| [**Ritual**](https://github.com/whystrohm/ritual) **· NEW** | Scans your machine, ranks the top 5 recurring tasks worth scheduling, and drafts a Claude Code scheduled trigger that runs Voice Scorer across your brands on a set cadence. | [Download `.skill` ↗](https://github.com/whystrohm/ritual/releases/latest) |
 | [Digital Twin](https://github.com/whystrohm/digital-twin-of-yourself) | Reverse-engineer how you think and talk. Stress-tested AI System Prompt of yourself. | `git clone https://github.com/whystrohm/digital-twin-of-yourself.git ~/.claude/skills/digital-twin` |
 | [Content Audit](https://github.com/whystrohm/whystrohm-audit) | Score your content against a 5-layer framework, get a live rewrite. | `git clone https://github.com/whystrohm/whystrohm-audit.git ~/.claude/skills/whystrohm-audit` |
 
 ## Brand Infrastructure Consulting
 
-This skill is one piece of the brand infrastructure I build for founder-led brands. Voice extraction, programmatic video, automated publishing. One operator, full stack. You own everything.
+This skill is one piece of the brand infrastructure I build for founder-led brands: voice extraction, programmatic video, and scheduled publishing. You own everything.
 
-→ [whystrohm.com/pricing](https://whystrohm.com/pricing?utm_source=github&utm_medium=repo-cta&utm_campaign=2026-04-10-closed-loop)
+→ [whystrohm.com/system](https://whystrohm.com/system?utm_source=github&utm_medium=repo-cta&utm_campaign=2026-04-10-closed-loop)
 
 ## License
 

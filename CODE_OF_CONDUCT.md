@@ -6,7 +6,7 @@ This project exists to help people improve their content. We expect all particip
 
 - Be respectful and constructive in issues and pull requests
 - Focus feedback on the skill's output and methodology, not on individuals
-- Accept that content scoring is opinionated by design — debate the criteria, not the person
+- Accept that content scoring is opinionated by design. Debate the criteria, not the person
 
 ## Unacceptable Behavior
 
