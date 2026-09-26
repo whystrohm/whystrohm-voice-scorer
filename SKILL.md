@@ -16,7 +16,7 @@ digraph voice_scorer {
     "Ask for URL" [shape=box];
     "Scrape website" [shape=box];
     "Build voice profile" [shape=box];
-    "Ask for social posts" [shape=box];
+    "Ask for social posts" [shape=box, label="Pull or paste recent content"];
     "Score social against profile" [shape=box];
     "Calculate drift score" [shape=box];
     "Determine direction" [shape=box];
@@ -55,11 +55,20 @@ Read `rules/voice-analysis.md`. Build the internal voice profile from the scrape
 
 Tell the user: **"Got your website voice. Now I need your social content."**
 
-## Step 4: Collect Social Posts
+## Step 4: Collect Recent Content (auto-pull or paste)
 
-Ask: **"Paste 3-5 of your recent social posts — LinkedIn, X, whatever platform you use. Just paste them all into one message."**
+You need a sample of the brand's recent published content to score against the website voice. Offer to pull it from a public link, or let them paste it.
 
-Wait for answer. Count posts and approximate word count for confidence scoring.
+Ask: **"Want me to pull your recent content from a public link, or paste it? (auto / paste)"**
+
+**If auto:** ask for ONE public URL where their recent content lives (blog, newsletter archive, or YouTube channel), then WebFetch it. Use public sources only (see the "Compliant sources only" rule below):
+- **YouTube:** prefer the public feed `https://www.youtube.com/feeds/videos.xml?channel_id=<UC…>`. It returns recent titles and descriptions. If you only have a handle or channel URL, use WebSearch to find the `channel_id` first, or WebFetch the channel page.
+- **Blog / newsletter:** WebFetch the index or archive page and read the recent posts.
+- If a source is blocked or returns nothing, say so and fall back to paste. Tell the user what you pulled and from where, then treat it exactly like pasted posts.
+
+**If paste (or fallback):** Ask: **"Paste 3-5 of your recent social posts from LinkedIn, X, or whatever platform you use. Paste them all into one message."**
+
+Either way: count posts and approximate word count for confidence scoring.
 
 ## Step 5: Score the Drift
 
@@ -89,6 +98,7 @@ Read `templates/cta.md`. Display the pitch to run the full 5-layer audit.
 - **No hype.** The tool practices what it preaches.
 - **Handle "social is better" honestly.** Don't assume the website is always the baseline.
 - **Flag low confidence.** If fewer than 3 posts or under 200 words, caveat the score.
+- **Compliant sources only.** Auto-pull reads public pages and feeds via WebFetch. NEVER scrape authenticated or walled platforms (LinkedIn, X/Twitter, Instagram) behind a login or with cookies. If a source is blocked, fall back to paste.
 - **Don't apologize or soften.** "Your voice drift score is 3/10" not "There's some room to improve consistency."
 
 ## Related Skills
