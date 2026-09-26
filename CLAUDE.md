@@ -14,7 +14,7 @@ This is a Claude Code skill. It is not a traditional codebase. It is a set of ma
 2. Open a fresh Claude Code session
 3. Run `/whystrohm-voice-scorer`
 4. Provide any company URL, then either one public content link (auto) or 3-5 social posts (paste)
-5. Verify the full flow completes: scrape → profile → pull or paste → score → report → CTA
+5. Verify the full flow completes: scrape (or read `brand/voice-profile.json`) → profile → pull or paste → score → report → CTA
 
 ## Key rules
 

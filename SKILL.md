@@ -52,14 +52,17 @@ Check the user's current folder for `brand/voice-profile.json`. whystrohm-voice-
 the format in `contracts/voice-profile.v1.schema.json`.
 
 Use it only if all of these hold:
-- `contract` is `voice-profile` and `version` is `1`.
+- `contract` is `voice-profile` and `version` is the string `"1"`.
 - The host in its `url` matches the host of the URL the user gave (ignore `www.`).
 - It has all six `dimensions` with a 1-5 `score` and an `evidence` quote.
 
-If it passes, read the website baseline from it (see "Reading a saved profile" in
+If it passes and `extracted_at` is more than 180 days old, ask first: **"Your saved voice profile
+for [host] is from [extracted_at]. Use it, or scan the site again? (use / scan)"** On "scan", ignore
+the file and continue with Step 2b.
+
+Otherwise, or on "use", read the website baseline from it (see "Reading a saved profile" in
 `rules/voice-analysis.md`), tell the user **"Using your saved voice profile for [host], extracted
-[extracted_at]. Skipping the site scan."**, and go straight to Step 4. If `extracted_at` is more
-than 180 days old, say so and ask whether to use it or scan the site again.
+[extracted_at]. Skipping the site scan."**, and go straight to Step 4.
 
 If there is no file, or it fails a check, say nothing about it and continue with the scan below.
 
@@ -97,7 +100,7 @@ Either way: count posts and approximate word count for confidence scoring.
 ## Step 5: Score the Drift
 
 Read `rules/drift-scoring.md`. For each voice dimension:
-1. Score the website (from Step 3)
+1. Score the website (from Step 3, or from the saved profile loaded in Step 2)
 2. Score the social content
 3. Calculate drift per dimension
 4. Calculate weighted overall drift score (1-10)
