@@ -19,7 +19,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 - `rules/voice-analysis.md` describes how the scorer uses the profile, not how the audit uses it.
 - `rules/drift-scoring.md` states the max drift for categorical dimensions (3). Its confidence table covers each case once.
 - CTAs link straight to https://whystrohm.com/scan and https://whystrohm.com/system. README links carry UTM tags.
-- Copy no longer states prices, makes speed claims, or uses em dashes.
+- Copy uses short, plain statements.
 
 ## [1.0.0] - 2026-03-27
 
