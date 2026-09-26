@@ -7,6 +7,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 ## [Unreleased]
 
 ### Added
+- Reads `brand/voice-profile.json` from whystrohm-voice-extract when it exists for the same site, and skips the site scan. Format: `contracts/voice-profile.v1.schema.json`.
+- CI checks the schema and that it matches the canonical copy in whystrohm/shotkit.
 - Step 4 can pull recent content from one public link (blog, newsletter archive, or YouTube feed). Pasting still works and is the fallback. Public sources only.
 - SECURITY.md listing every network call the skill makes.
 - CONTRIBUTING.md and this CHANGELOG.

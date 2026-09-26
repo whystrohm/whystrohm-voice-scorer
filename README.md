@@ -18,7 +18,7 @@ Does your LinkedIn sound like your website? Do your X posts match your brand? Pa
 
 | Step | What Happens |
 |------|-------------|
-| **1. Scrape** | Pulls your website to build a voice profile |
+| **1. Scrape** | Pulls your website to build a voice profile. If `brand/voice-profile.json` from [Voice Extract](https://github.com/whystrohm/whystrohm-voice-extract) exists for the same site, it reads that instead |
 | **2. Collect** | Pulls recent content from one public link you give it, or you paste 3-5 recent social posts (LinkedIn, X, any platform) |
 | **3. Compare** | Scores your social voice against your website voice |
 | **4. Report** | Shows drift score, per-dimension breakdown, and exact drift examples |

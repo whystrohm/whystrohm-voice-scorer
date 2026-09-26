@@ -1,0 +1,46 @@
+name: contracts
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema
+      - name: Schemas are valid and examples pass them
+        run: |
+          python - <<'PY'
+          import glob, json, sys
+          import jsonschema
+          ok = True
+          for path in sorted(glob.glob("contracts/*.schema.json")):
+              schema = json.load(open(path))
+              jsonschema.Draft202012Validator.check_schema(schema)
+              print(f"ok schema {path}")
+              name = path.split("/")[-1].replace(".v1.schema.json", "")
+              for ex in sorted(glob.glob(f"examples/{name}*.json")):
+                  errors = list(jsonschema.Draft202012Validator(schema).iter_errors(json.load(open(ex))))
+                  for e in errors:
+                      ok = False
+                      print(f"FAIL {ex}: {e.message}")
+                  if not errors:
+                      print(f"ok example {ex}")
+          sys.exit(0 if ok else 1)
+          PY
+      - name: Schemas match the canonical copies in whystrohm/shotkit
+        run: |
+          status=0
+          for f in contracts/*.schema.json; do
+            curl -fsSL "https://raw.githubusercontent.com/whystrohm/shotkit/main/$f" -o /tmp/canonical.json
+            if cmp -s "$f" /tmp/canonical.json; then echo "ok match $f"; else echo "FAIL $f differs from whystrohm/shotkit"; status=1; fi
+          done
+          exit $status

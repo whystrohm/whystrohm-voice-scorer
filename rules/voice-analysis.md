@@ -60,6 +60,23 @@ VOICE PROFILE (inferred from site):
 - Key phrases: [3-5 distinctive phrases from their site]
 ```
 
+## Reading a Saved Profile
+
+When SKILL.md Step 2 loads `brand/voice-profile.json`, build the same internal profile from it
+instead of from a scrape:
+
+| Internal field | From the file |
+|---|---|
+| Authority | `dimensions.authority.score`, evidence from `dimensions.authority.evidence` |
+| Formality | `dimensions.formality.score` and `.evidence` |
+| Emotional temp | `dimensions.emotional_temperature.score` and `.evidence` |
+| Vocab pattern | `vocabulary.vocab_pattern` |
+| Proof style | `vocabulary.proof_style`: `numbers` and `social` count as `data`; `stories`, `mechanisms` and `none` map directly |
+| Positioning | `positioning.calls_itself` plus `positioning.serves` |
+| Key phrases | the first 3 to 5 of `vocabulary.signature_phrases` |
+
+The evidence quotes in the file are the website quotes for the report. Do not invent new ones.
+
 ## Using the Profile
 
 `rules/drift-scoring.md` applies this same framework to the user's recent content (pasted or pulled), then compares the two profiles:

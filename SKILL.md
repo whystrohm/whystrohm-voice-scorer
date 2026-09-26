@@ -14,6 +14,8 @@ Score how well your social content matches your website voice. One layer, one sc
 digraph voice_scorer {
     "User runs /whystrohm-voice-scorer" [shape=doublecircle];
     "Ask for URL" [shape=box];
+    "Saved profile for this site?" [shape=diamond];
+    "Read brand/voice-profile.json" [shape=box];
     "Scrape website" [shape=box];
     "Build voice profile" [shape=box];
     "Ask for social posts" [shape=box, label="Pull or paste recent content"];
@@ -24,7 +26,10 @@ digraph voice_scorer {
     "Show CTA" [shape=doublecircle];
 
     "User runs /whystrohm-voice-scorer" -> "Ask for URL";
-    "Ask for URL" -> "Scrape website";
+    "Ask for URL" -> "Saved profile for this site?";
+    "Saved profile for this site?" -> "Read brand/voice-profile.json" [label="yes"];
+    "Saved profile for this site?" -> "Scrape website" [label="no"];
+    "Read brand/voice-profile.json" -> "Ask for social posts";
     "Scrape website" -> "Build voice profile";
     "Build voice profile" -> "Ask for social posts";
     "Ask for social posts" -> "Score social against profile";
@@ -41,7 +46,24 @@ Ask: **"What's your website URL?"**
 
 Nothing else. One question. Wait for answer.
 
-## Step 2: Scrape the Website
+## Step 2: Use a Saved Profile if There Is One
+
+Check the user's current folder for `brand/voice-profile.json`. whystrohm-voice-extract writes it in
+the format in `contracts/voice-profile.v1.schema.json`.
+
+Use it only if all of these hold:
+- `contract` is `voice-profile` and `version` is `1`.
+- The host in its `url` matches the host of the URL the user gave (ignore `www.`).
+- It has all six `dimensions` with a 1-5 `score` and an `evidence` quote.
+
+If it passes, read the website baseline from it (see "Reading a saved profile" in
+`rules/voice-analysis.md`), tell the user **"Using your saved voice profile for [host], extracted
+[extracted_at]. Skipping the site scan."**, and go straight to Step 4. If `extracted_at` is more
+than 180 days old, say so and ask whether to use it or scan the site again.
+
+If there is no file, or it fails a check, say nothing about it and continue with the scan below.
+
+## Step 2b: Scrape the Website
 
 Use WebFetch to pull:
 1. Homepage
@@ -50,6 +72,8 @@ Use WebFetch to pull:
 While scraping, tell the user: "Pulling your site now. Analyzing your voice patterns..."
 
 ## Step 3: Build Voice Profile
+
+Skip this step if Step 2 loaded a saved profile.
 
 Read `rules/voice-analysis.md`. Build the internal voice profile from the scraped pages.
 
@@ -98,10 +122,13 @@ Read `templates/cta.md`. Display the pitch to run the full 5-layer audit.
 - **No hype.** The tool practices what it preaches.
 - **Handle "social is better" honestly.** Don't assume the website is always the baseline.
 - **Flag low confidence.** If fewer than 3 posts or under 200 words, caveat the score.
+- **A saved profile is read, never rewritten.** This skill does not write or change `brand/voice-profile.json`.
 - **Compliant sources only.** Auto-pull reads public pages and feeds via WebFetch. NEVER scrape authenticated or walled platforms (LinkedIn, X/Twitter, Instagram) behind a login or with cookies. If a source is blocked, fall back to paste.
 - **Don't apologize or soften.** "Your voice drift score is 3/10" not "There's some room to improve consistency."
 
 ## Related Skills
+
+- **Voice Extract** (`/whystrohm-voice-extract` or [GitHub](https://github.com/whystrohm/whystrohm-voice-extract)): Builds the full 6-dimension profile and saves it as `brand/voice-profile.json`. Run it first and this skill uses that profile as its baseline.
 
 - **[Digital Twin](https://github.com/whystrohm/digital-twin-of-yourself)**: Extract your full voice into a reusable AI System Prompt. Goes deeper than a voice profile. Captures decision logic, cognitive patterns, and knowledge boundaries. Validate with the [scoring rubric](https://github.com/whystrohm/digital-twin-of-yourself/blob/main/validation/RUBRIC.md).
 - **Content Audit** (`/whystrohm-audit` or [GitHub](https://github.com/whystrohm/whystrohm-audit)): Full 5-layer diagnostic. Voice drift is one layer. The audit scores all five and rewrites one piece live.
