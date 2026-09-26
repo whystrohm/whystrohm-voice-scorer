@@ -6,18 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). This pr
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-26
+
 ### Added
-- Reads `brand/voice-profile.json` from whystrohm-voice-extract when it exists for the same site, and skips the site scan. Format: `contracts/voice-profile.v1.schema.json`.
-- CI checks the schema and that it matches the canonical copy in whystrohm/shotkit.
-- Step 4 can pull recent content from one public link (blog, newsletter archive, or YouTube feed). Pasting still works and is the fallback. Public sources only.
-- SECURITY.md listing every network call the skill makes.
+- Reads `brand/voice-profile.json` from whystrohm-voice-extract when it exists for the same site, and skips the site scan. The file format is `contracts/voice-profile.v1.schema.json`.
+- CI checks the schema and checks that it matches the canonical copy in whystrohm/shotkit.
+- Step 4 can pull recent content from one public link: a blog, a newsletter archive, or a YouTube feed. Pasting still works and is the fallback. Only public sources are read.
+- SECURITY.md lists every network call the skill makes.
 - CONTRIBUTING.md and this CHANGELOG.
 
 ### Changed
-- `rules/voice-analysis.md` describes the scorer's use of the profile, not the audit's.
-- `rules/drift-scoring.md` states the max drift for categorical dimensions (3) and uses a confidence table that covers every case once.
-- CTAs point straight at https://whystrohm.com/scan and https://whystrohm.com/system, with UTM tags in the README.
-- Copy pass: no prices, no speed claims, no em dashes.
+- `rules/voice-analysis.md` describes how the scorer uses the profile, not how the audit uses it.
+- `rules/drift-scoring.md` states the max drift for categorical dimensions (3). Its confidence table covers each case once.
+- CTAs link straight to https://whystrohm.com/scan and https://whystrohm.com/system. README links carry UTM tags.
+- Copy no longer states prices, makes speed claims, or uses em dashes.
 
 ## [1.0.0] - 2026-03-27
 
